@@ -4,7 +4,7 @@ var path = require("path");
 
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -12,15 +12,15 @@ app.use(bodyParser.json());
 
 var reservations = [];
 
-app.get("/", function(req, res) {
+app.get("/index.html", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/reservation", function(req, res) {
+app.get("/reservation.html", function(req, res) {
   res.sendFile(path.join(__dirname, "reservation.html"));
 });
 
-app.get("/tables", function(req, res) {
+app.get("/tables.html", function(req, res) {
   res.sendFile(path.join(__dirname, "tables.html"));
 });
 
