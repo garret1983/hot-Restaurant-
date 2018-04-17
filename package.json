@@ -1,0 +1,24 @@
+{
+  "name": "hot-restaurant-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hotres.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garret1983/hot-Restaurant-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garret1983/hot-Restaurant-/issues"
+  },
+  "homepage": "https://github.com/garret1983/hot-Restaurant-#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  }
+}
