@@ -1,87 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>reservations</title>
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>reservations</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </head>
+
 <body>
 
-  <div class="container">
-    <div class="jumbotron">
-      <h1>Hot Table</h1>
-      <h3>tabls are going quick! make your reservation now.</h3>
-      <hr>
-      <a href="/"><button class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> View Tables</button></a>  
-      <a href="/all"><button class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> Home</button></a>
-    </div>
-    <div class="row">
-
-      <div class="col-lg-12">
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title"><strong>Make a reservation</strong></h3>
-          </div>
-          <div class="panel-body">
-            <form role="form">
-
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name">
-              </div>
-
-              <div class="form-group">
-                <label for="role">phone number</label>
-                <input type="text" class="form-control" id="role">
-              </div>
-
-              <div class="form-group">
-                <label for="age">e-mail</label>
-                <input type="text" class="form-control" id="age">
-              </div>
-
-              <div class="form-group">
-                <label for="force-points">Special Request</label>
-                <input type="text" class="form-control" id="force-points">
-              </div>
-
-            </form>
-            <br>
-            <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span> Add to the Force</button>
-            </div>
-          </div>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Hot Table</h1>
+            <h3>tabls are going quick! make your reservation now.</h3>
+            <hr>
+            <a href="tables.html">
+                <button class="btn btn-danger btn-lg">
+                    <span class="glyphicon glyphicon-eye-open"></span> View Tables</button>
+            </a>
+            <a href="index.html">
+                <button class="btn btn-danger btn-lg">
+                    <span class="glyphicon glyphicon-home"></span> Home</button>
+            </a>
         </div>
+        <div class="row">
 
-      </div>
+            <div class="col-lg-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <strong>Make a reservation</strong>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="role">phone number</label>
+                                <input type="text" class="form-control" id="phoneNummber">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">e-mail</label>
+                                <input type="text" class="form-control" id="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="force-points">Special Request</label>
+                                <input type="text" class="form-control" id="specialRequest">
+                            </div>
+
+                        </form>
+                        <br>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary btn-md" id="add-btn">
+                                <span class="glyphicon glyphicon-fire"></span> Add to the Force</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script type="text/javascript">
-    // Question: What does this code do?
-    $("#add-btn").on("click", function(event) {
-      event.preventDefault();
+    <script type="text/javascript">
+        // Question: What does this code do?
+        $("#add-btn").on("click", function (event) {
+            event.preventDefault();
 
-      var newCharacter = {
-        name: $("#name").val().trim(),
-        role: $("#role").val().trim(),
-        age: $("#age").val().trim(),
-        forcePoints: $("#force-points").val().trim()
-      };
+            var newReservation = {
+                name: $("#name").val().trim(),
+                phoneNummber: $("#phoneNumber").val().trim(),
+                email: $("#email").val().trim(),
+                specialRequest: $("#specialRequest").val().trim()
+            };
 
-      // Question: What does this code do??
-      $.post("/api/characters", newCharacter)
-        .then(function(data) {
-          console.log(data);
-          alert("Adding character...");
+            // Question: What does this code do??
+            $.post("/api/characters", newReservation)
+                .then(function (data) {
+                    console.log(data);
+                    alert("Adding reservation...");
+                });
+
         });
 
-    });
-  </script>
+        <div class="text-center">
+            <a href="index.html"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-home"></span>Home</button></a>
+
+            <a href="tables.html"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-hourglass"></span>View Tables</button></a>
+        </div>
+
+    </script>
 </body>
+
 </html>
